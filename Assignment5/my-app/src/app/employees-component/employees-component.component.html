@@ -1,58 +1,35 @@
-<div class="center">
-  <h2>Employees</h2>
-  <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed
-    eros tristique bibendum.
-  </p>
+
+<div *ngIf='loadingError'>
+  <p class='text-center'><b>The requested information could not be retrieved!</b></p>
 </div>
-
-<div *ngIf="loadingError">Employees not found</div>
-
-<div *ngIf="!loadingError" class="container">
+<div class="center" *ngIf='!loadingError'>
+  <h2>Employees</h2>
+  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
+</div>
+<div class="container" *ngIf='!loadingError'>
   <div class="row">
-    <div class="col-md-12">
-      <input
-        class="form-control"
-        id="EmployeeSearch"
-        name="EmployeeSearch"
-        type="text"
-        placeholder="Search
-        Employees by Full Name or Position"
-        (keyup)="onEmployeeSearchKeyUP($event)"
-      /><br />
-      <div class="table-responsive">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <td>Full Name</td>
-              <td>Address</td>
-              <td>Phone Number</td>
-              <td>Hire Date</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let employee of filteredEmployees"
-              (click)="routeEmployee(employee._id)"
-            >
-              <td>{{ employee.FirstName + " " + employee.LastName }}</td>
-              <td>
-                {{
-                  employee.AddressStreet +
-                    ". " +
-                    employee.AddressState +
-                    ", " +
-                    employee.AddressCity +
-                    ". " +
-                    employee.AddressZip
-                }}
-              </td>
-              <td>{{ employee.PhoneNum + " ext: " + employee.Extension }}</td>
-              <td>{{ employee.HireDate | date: "longDate" }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-md-12">
+          <input class="form-control" id="EmployeeSearch" name="EmployeeSearch" type="text" placeholder="Search Employees by Full Name or Position" (keyup)="onEmployeeSearchKeyUP($event)" /><br />
+          <div class="table-responsive">
+              <table class="table table-condensed table-hover">
+                <thead>
+                  <tr>
+                      <th>Full Name</th>
+                      <th>Address</th>
+                      <th>Phone Number</th>
+                      <th>Hire Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of filteredEmployees" (click)="routeEmployee(emp._id)">
+                      <td>{{emp.FirstName}}&nbsp;{{emp.LastName}}</td>
+                      <td>{{emp.AddressStreet}}.&nbsp;{{emp.AddressState}},&nbsp;{{emp.AddressCity}}.&nbsp;{{emp.AddressZip}}</td> 
+                      <td>{{emp.PhoneNum}}&nbsp;ext:&nbsp;{{emp.Extension}}</td>
+                      <td>{{emp.HireDate | date:'longDate'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>  
       </div>
-    </div>
   </div>
 </div>
