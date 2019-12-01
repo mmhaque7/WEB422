@@ -4,7 +4,9 @@
  *  assignment has been copied manually or electronically from any other source (including web sites) or
  *  distributed to other students.
  *
- *  Name: Md Mehedi Haque student ID:  Date: November 16 2019
+ *  Name: Md Mehedi Haque student ID:154908172  Date: November 16 2019
+ *
+ * Heroku Link: _______________________________________________________________
  *
  ********************************************************************************/
 
@@ -16,5 +18,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "app5";
+  title = "app6";
 }

@@ -8,11 +8,12 @@ import { ContentComponent } from "./content-component/content-component.componen
 import { FooterComponent } from "./footer-component/footer-component.component";
 import { HomeComponent } from "./home-component/home-component.component";
 import { EmployeesComponent } from "./employees-component/employees-component.component";
-import { PositionComponent } from "./position-component/position-component.component";
+import { PositionComponent } from "./positions-component/positions-component";
 import { PageNotFoundComponent } from "./page-not-found-component/page-not-found-component.component";
 import { EmployeeService } from "./data/employee.service";
 import { PositionService } from "./data/position.service";
 import { RouterModule } from "@angular/router";
+import { PositioComponent } from "./positio-component/positio-component.component";
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
